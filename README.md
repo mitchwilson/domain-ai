@@ -13,6 +13,7 @@ I imagine the next steps would be to create an expert system where the user answ
 ![App Screenshot](domain-ai-ui.png)
 
 - Clone the repo locally.
+- Email me at mitchwilson1969@gmail.com to get a test api key.
 - Set the test API key (which is read-only) as an environment variable. On Mac, for example, open a terminal and run:
 	```sh
 	export OPENAI_API_KEY=<TEST_KEY>
