@@ -81,7 +81,7 @@ app.post('/ask', async (req, res) => {
     return res.status(400).json({ error: 'Missing question in request body' });
   }
   try {
-    const answer = await askOpenAI(question + " in Austin, Texas.");
+    const answer = await askOpenAI(question);
     res.json({ answer });
   } catch (err) {
     console.error(err);
