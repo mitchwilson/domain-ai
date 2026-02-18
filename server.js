@@ -1,15 +1,26 @@
 import express from "express";
 import OpenAI from "openai";
 
+
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 const app = express();
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
-  res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+
+// CORS for dev only
+if (process.env.NODE_ENV !== 'production') {
+  app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    next();
+  });
+}
 
 // Make sure your env var exists
 if (!process.env.OPENAI_API_KEY) {
@@ -39,7 +50,17 @@ app.get("/test", async (req, res) => {
   }
 });
 
-const PORT = 3000;
+
+// Serve static files from React build in production
+if (process.env.NODE_ENV === 'production') {
+  const clientBuildPath = path.join(__dirname, 'client', 'dist');
+  app.use(express.static(clientBuildPath));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientBuildPath, 'index.html'));
+  });
+}
+
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
