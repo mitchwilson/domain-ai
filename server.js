@@ -43,3 +43,27 @@ const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
+async function askOpenAI(question) {
+  const response = await client.chat.completions.create({
+    model: 'gpt-3.5-turbo', // or 'gpt-4' if you have access
+    messages: [{ role: 'user', content: question }],
+  });
+  return response.choices[0].message.content;
+}
+
+
+// API endpoint to ask a question to OpenAI
+app.post('/ask', async (req, res) => {
+  const { question } = req.body;
+  if (!question) {
+    return res.status(400).json({ error: 'Missing question in request body' });
+  }
+  try {
+    const answer = await askOpenAI(question);
+    res.json({ answer });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'OpenAI request failed' });
+  }
+});
