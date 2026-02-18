@@ -48,7 +48,7 @@ export default function Home() {
 
   return (
     <section>
-      <h1>Test OpenAI Server</h1>
+      <h1>Domain-AI Client</h1>
       <p>Click the button below to send a request to the OpenAI server.</p>
       
       
