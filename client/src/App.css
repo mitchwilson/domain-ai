@@ -1,11 +1,16 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 nav {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  padding-bottom: 1.5rem;
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  a {
+    padding: 1rem;
+  }
 }

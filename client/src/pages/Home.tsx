@@ -48,8 +48,6 @@ export default function Home() {
     <section>
       <h1>Domain-AI Client</h1>
       <p>Click the button below to send a request to the OpenAI server.</p>
-      
-      
       <div style={{ marginTop: "1rem" }}>
         <button onClick={handleClick} disabled={loading}>
           Test server connection
@@ -86,7 +84,7 @@ export default function Home() {
           Ask a question
         </button>
       </div>
-      <pre>{output}</pre>
+      <p>{output}</p>
     </section>
   );
 }
