@@ -12,13 +12,11 @@ I imagine the next steps would be to create an expert system where the user answ
 
 ![App Screenshot](domain-ai-ui.png)
 
-- Clone the repo locally
-- Set the test API key (which is read-only) locally so it is an environmental variable. On Mac, for example, open a terminal and copy this and replace <TEST_API_KEY> with the test api key you were given (email me): 
-```sh
-export OPENAI_API_KEY=<TEST_API_KEY>
-```
-- npm install
-- npm run dev (this starts the server and the client)
+- Clone the repo locally.
+- Set the test API key (which is read-only) as an environment variable. On Mac, for example, open a terminal and run:
+	```sh
+	export OPENAI_API_KEY=<TEST_KEY>
+	```
 - Run `npm install`
 - Run `npm run dev` (this starts the server and the client)
 - Open http://localhost:5173/ in your browser.
