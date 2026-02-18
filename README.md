@@ -8,9 +8,17 @@ I imagine the next steps would be to create an expert system where the user woul
 
 ## Running the demo
 
+![App Screenshot](domain-ai-ui.png)
+
 - Clone the repo locally
+<<<<<<< HEAD
 - Set the test API key (which is read-only) locally so it is an environmental variable. On Mac, for example, open a terminal and copy this: ```sh
 export OPENAI_API_KEY=<TEST_API_KEY>
+=======
+- Set the test API key (which is read-only) locally so it is an environmental variable. On Mac, for example, open a terminal and copy this: 
+```sh
+export OPENAI_API_KEY=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
+>>>>>>> f388cec (feat: update README with complete instructions and add a photo of UI)
 ```
 - npm install
 - npm run dev (this starts the server and the client)
