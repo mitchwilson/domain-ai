@@ -1,16 +1,14 @@
 import express from "express";
 import OpenAI from "openai";
-
-
 import path from "path";
 import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
 const app = express();
-app.use(express.json());
+const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
 
 // CORS for dev only
 if (process.env.NODE_ENV !== 'production') {
@@ -30,6 +28,10 @@ if (!process.env.OPENAI_API_KEY) {
 // Create OpenAI client
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}`);
 });
 
 // Test endpoint
@@ -59,11 +61,6 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.join(clientBuildPath, 'index.html'));
   });
 }
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
-});
 
 async function askOpenAI(question) {
   const response = await client.chat.completions.create({

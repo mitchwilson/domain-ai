@@ -1,5 +1,3 @@
-
-
 import { useState } from 'react';
 
 export default function Home() {
@@ -7,7 +5,7 @@ export default function Home() {
   const [message, setMessage] = useState<string>("Recommend a good tourist attraction");
   const [loading, setLoading] = useState<boolean>(false);
 
-  const [selectedOption, setSelectedOption] = useState<string>("option1");
+  const [selectedOption, setSelectedOption] = useState<string>("Austin, TX");
 
   const handleSelectButton = () => {
     setOutput(`Selected: ${selectedOption}`);
