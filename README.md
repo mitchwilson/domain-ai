@@ -27,3 +27,13 @@ export OPENAI_API_KEY=sk-proj-CzTRj-0zce-Qtpp7haW9nsTGWK48tNuEFMVyXmffShbCk-SvD6
 ## Stopping the demo
 
 - Control + C in the terminal running the server and client
+
+## Tech stack
+
+The client is written using React and TypeScript.
+
+The server is written using Node.js and JavaScript. 
+
+The AI used is the OpenAI API on the server.
+
+The OpenAI API key is stored locally on your computer running the demo using the test API key shown above.
